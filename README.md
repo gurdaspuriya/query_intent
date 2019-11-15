@@ -53,3 +53,4 @@ usage: python context_term_weighting.py  --data_folder <data folder location>
                                          --output_file <Path to the output file, to write importance weights>
 ```
 
+The two required arguments are 'data_folder', which is the path to the folder containing the required input data to train/evaluate; and 'output_file', which is the path to the output file, where the relevance weights are to be written.
