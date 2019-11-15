@@ -7,7 +7,8 @@ and its extended version:
 
 Manchanda, Saurav, Mohit Sharma, and George Karypis. "Intent term selection and refinement in e-commerce queries." arXiv preprint arXiv:1908.08564 (2019).
 
-```@inproceedings{manchanda2019intent,
+```
+@inproceedings{manchanda2019intent,
   title={Intent Term Weighting in E-commerce Queries},
   author={Manchanda, Saurav and Sharma, Mohit and Karypis, George},
   booktitle={Proceedings of the 28th ACM International Conference on Information and Knowledge Management},
@@ -17,7 +18,8 @@ Manchanda, Saurav, Mohit Sharma, and George Karypis. "Intent term selection and 
 }
 ```
 
-```@article{manchanda2019intent,
+```
+@article{manchanda2019intent,
   title={Intent term selection and refinement in e-commerce queries},
   author={Manchanda, Saurav and Sharma, Mohit and Karypis, George},
   journal={arXiv preprint arXiv:1908.08564},
