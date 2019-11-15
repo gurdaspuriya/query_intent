@@ -15,8 +15,9 @@ Manchanda, Saurav, Mohit Sharma, and George Karypis. "Intent term selection and 
   year={2019},
   organization={ACM}
 }
+```
 
-@article{manchanda2019intent,
+```@article{manchanda2019intent,
   title={Intent term selection and refinement in e-commerce queries},
   author={Manchanda, Saurav and Sharma, Mohit and Karypis, George},
   journal={arXiv preprint arXiv:1908.08564},
