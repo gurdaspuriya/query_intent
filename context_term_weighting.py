@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-# Author: Saurav Manchanda, manch043@umn.edu, please consider citing """Manchanda, Saurav, Mohit Sharma, and George Karypis. "Intent Term Weighting in E-commerce Queries." Proceedings of the 28th ACM International Conference on Information and Knowledge Management. ACM, 2019.""" and """Manchanda, Saurav, Mohit Sharma, and George Karypis. "Intent term selection and refinement in e-commerce queries." arXiv preprint arXiv:1908.08564 (2019)."""
 
 # In[ ]:
 
@@ -23,6 +22,7 @@ import random
 import math
 import argparse
 
+
 # In[ ]:
 
 
@@ -39,6 +39,7 @@ def usage():
                                                 --num_layers_mlp <Number of layers in MLP (Default 2)>
                                                 --learning_rate <Learning rate (Default 0.001)> --weight_decay <L2 regularization (Default 1e-5)>
                                                 --use_cuda <Cuda device to use, negative for cpu (Default -1)> 
+                                                --seed <Seed for initializations, (Default 0)> 
                                                 --update_embed <Whether to train the embeddings (Default 1)>
                                                 --pretrained <Whether to use pretrained embeddings (Default 1; vectors.txt file should be present for this option to work)>
                                                 --max_grad_norm <Maximum norm of the gradient, for gradient clipping (Default 1.0)>
@@ -52,13 +53,14 @@ def get_args():
     parser.add_argument('--hidden_size_gru', type=int, default=256, required =False, help='Number of nodes in the hidden layer of GRU(Default 256).');
     parser.add_argument('--hidden_size_mlp', type=int, default=10, required =False, help='Number of nodes in the hidden layer of MLP(Default 10).');
     parser.add_argument('--dropout', type=float, default=0.25, required =False, help='Dropout (Default 0.25).');
-    parser.add_argument('--num_epochs', type=int, default=10, required =False, help='Number of training epochs (Default 20).');
+    parser.add_argument('--num_epochs', type=int, default=20, required =False, help='Number of training epochs (Default 20).');
     parser.add_argument('--batch_size', type=int, default=512, required =False, help='Batch size (Default 512).');
     parser.add_argument('--num_layers_gru', type=int, default=2, required =False, help='Number of layers in GRU (Default 2).');
     parser.add_argument('--num_layers_mlp', type=int, default=2, required =False, help='Number of layers in MLP (Default 2).');
     parser.add_argument('--learning_rate', type=float, default=0.001, required =False, help='Learning rate (Default 0.001).');
     parser.add_argument('--weight_decay', type=float, default=1e-5, required =False, help='L2 regularization (Default 1e-5).');
     parser.add_argument('--use_cuda', type=int, default=0, required =False, help='Cuda device to use, negative for cpu (Default -1).');
+    parser.add_argument('--seed', type=int, default=0, required =False, help='Seed for initializations (Default 0).');
     parser.add_argument('--update_embed', type=int, default=1, required =False, help='Whether to train the embeddings (Default 1).');
     parser.add_argument('--pretrained', type=int, default=1, required =False, help='Whether to use pretrained embeddings (Default 1; vectors.txt file should be present for this option to work).');
     parser.add_argument('--max_grad_norm', type=float, default=1.0, required =False, help='Maximum norm of the gradient, for gradient clipping (Default 1.0)');
@@ -102,7 +104,7 @@ else:
     num_layers_mlp = args.num_layers_mlp;
     learning_rate = args.learning_rate;
     weight_decay = args.weight_decay; # L2 weight regularization
-    use_cuda = args.cuda;
+    use_cuda = args.use_cuda;
     seed = args.seed;
     pretrained = args.pretrained;
     update_embed = args.update_embed;
